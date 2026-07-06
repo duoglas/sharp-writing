@@ -56,7 +56,7 @@ git clone https://github.com/duoglas/sharp-writing.git ~/.claude/skills/sharp-wr
 
 装好后直接说"写一份月报""把这篇压成一页""帮我去掉 AI 味"，skill 会自动匹配；Claude Code 里也可显式 `/sharp-writing`。
 
-可选：把词表检查挂成 hook，任何 .md 文稿一经 Write/Edit 就自动过黑名单（`~/.claude/settings.json`）：
+可选：把词表检查挂成 hook，任何 .md 文稿一经 Write/Edit 就自动过黑名单（`~/.claude/settings.json`；hook 依赖 `jq`）：
 
 ```json
 {
