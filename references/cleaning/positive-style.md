@@ -1,5 +1,7 @@
 # Positive Style Contract
 
+> 源自开源 skill [shuorenhua](https://github.com/MrGeDiao/shuorenhua)（MIT © MrGeDiao），本文件在其基础上有增删。
+
 > 目标不是只把 AI 套话删干净，而是把文本拉回当前场景里“像具体人在说这件事”的状态。
 
 这份文档定义的是正向目标，不是新的 house style，也不是 voice 拟合协议。

@@ -1,5 +1,7 @@
 # English Banned Phrases
 
+> 源自开源 skill [shuorenhua](https://github.com/MrGeDiao/shuorenhua)（MIT © MrGeDiao），本文件在其基础上有增删。
+
 > Sources: humanizer, stop-slop, avoid-ai-writing, beautiful_prose.
 
 ## Tier 1: Replace by default

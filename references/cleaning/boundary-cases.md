@@ -1,5 +1,7 @@
 # 边界案例集
 
+> 源自开源 skill [shuorenhua](https://github.com/MrGeDiao/shuorenhua)（MIT © MrGeDiao），本文件在其基础上有增删。
+
 这些例子不是展示“怎么改得更狠”，而是展示“什么时候该轻改、什么时候不该误杀”。
 
 ## 1. 技术状态更新

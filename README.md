@@ -94,9 +94,11 @@ bash scripts/check-structure.sh 你的文稿.md
 
 `references/cleaning/personal-lexicon.md` 是词表的单一有效来源：黑名单（你点名讨厌的词）和白名单（你所在团队的正常用语，防"去 AI 味"误杀）都在这一个文件里改。判断一个词该不该进黑名单的标准写在文件末尾：看你自己的历史语料用不用它，而不是看通用 AI 词表。
 
-## 来源
+## 来源与致谢
 
 规则提炼自作者的真实汇报 / 评价 / PPT 实战反馈（每条规则带正例反例），范本取自公开出版物与公开信（张一鸣、黄峥、王慧文、曾鸣、周枫、Bezos、毛泽东《反对党八股》、鲁迅、余光中等）。内部来源样本已全部匿名化，示例数字为虚构。
+
+清理层（`references/cleaning/`）以 [MrGeDiao/shuorenhua](https://github.com/MrGeDiao/shuorenhua)（说人话，MIT）为底本——场景判定、Tier 分级、误杀防护、中英短语表的体系都来自它，是中文去 AI 味方向做得最扎实的开源 skill，在此致谢。本仓库在其基础上加了个人词表硬闸、概括句三查和结构反模式脚本；构建分支（condense / titles / principles / scene-* 各分册）为本仓库原创。
 
 ## License
 

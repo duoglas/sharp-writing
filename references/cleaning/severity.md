@@ -1,5 +1,7 @@
 # 严重度分级
 
+> 源自开源 skill [shuorenhua](https://github.com/MrGeDiao/shuorenhua)（MIT © MrGeDiao），本文件在其基础上有增删。
+
 > 不是所有 AI 味词汇都应该一刀切。分级处理减少误杀，保留自然表达。
 
 ## 分级定义

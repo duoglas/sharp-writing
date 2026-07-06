@@ -1,5 +1,7 @@
 # 改写示例
 
+> 源自开源 skill [shuorenhua](https://github.com/MrGeDiao/shuorenhua)（MIT © MrGeDiao），本文件在其基础上有增删。
+
 > 每个示例展示同一段内容的 AI 版和人话版。
 
 ## 中文示例

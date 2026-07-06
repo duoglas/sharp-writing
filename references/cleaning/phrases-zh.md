@@ -1,5 +1,7 @@
 # 中文禁用短语表
 
+> 源自开源 skill [shuorenhua](https://github.com/MrGeDiao/shuorenhua)（MIT © MrGeDiao），本文件在其基础上有增删。
+
 > 来源：awesome-ai-research-writing、日常 AI 输出观察、公众号/小红书 AI 味总结、Linux.do / X / 即刻社区反馈。
 
 本表默认列代表项，不追求把同义变体全部穷举出来。遇到没收录的新说法，先看它是不是现有模式的同类变体；只有现有模式吃不住，或误杀边界变了，才值得补成新词条。

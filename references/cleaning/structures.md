@@ -1,5 +1,7 @@
 # 结构反模式（跨语言）
 
+> 源自开源 skill [shuorenhua](https://github.com/MrGeDiao/shuorenhua)（MIT © MrGeDiao），本文件在其基础上有增删。
+
 > 这些模式不是某个词的问题，而是句子和段落层面的 AI 痕迹。中英文通用。
 
 ## 1. 二元对比假戏剧

@@ -1,5 +1,7 @@
 # 微操作手册
 
+> 源自开源 skill [shuorenhua](https://github.com/MrGeDiao/shuorenhua)（MIT © MrGeDiao），本文件在其基础上有增删。
+
 每类问题都按同一个协议处理：
 
 - `识别信号`

@@ -1,5 +1,7 @@
 # 场景禁改表
 
+> 源自开源 skill [shuorenhua](https://github.com/MrGeDiao/shuorenhua)（MIT © MrGeDiao），本文件在其基础上有增删。
+
 先判场景，再判断哪些内容不能乱动。去模板感不等于把所有文本都改成一个口气。
 
 只要环境里能读 `references/`，默认先用 [Protected Spans](./protected-spans.md) 划出不能漂的片段，再按这里的场景禁改项收窄改写范围。
