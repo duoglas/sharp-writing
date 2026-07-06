@@ -43,7 +43,7 @@
 ## 使用
 
 ```bash
-git clone https://github.com/<you>/sharp-writing.git ~/.claude/skills/sharp-writing
+git clone https://github.com/duoglas/sharp-writing.git ~/.claude/skills/sharp-writing
 ```
 
 然后在 Claude Code 里直接说"写一份月报""把这篇压成一页""帮我去掉 AI 味"，skill 会自动匹配；也可显式 `/sharp-writing`。
