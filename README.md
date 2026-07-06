@@ -40,13 +40,21 @@
 
 注意这句的形态：正面陈述 + 冒号 + 数字证据。对比由"300 万 vs 380 万"的并置承载，而没有写成"问题不在需求，而在产能"——那种二元对比骨架正是本 skill 清理层的必删项。
 
-## 使用
+## 安装
+
+推荐用 [skills CLI](https://github.com/vercel-labs/skills)，一条命令，兼容 Claude Code / OpenClaw / Cursor / Codex 等 70+ 个 agent 工具：
+
+```bash
+npx skills add duoglas/sharp-writing
+```
+
+Claude Code 用户也可手动 clone 到用户级目录：
 
 ```bash
 git clone https://github.com/duoglas/sharp-writing.git ~/.claude/skills/sharp-writing
 ```
 
-然后在 Claude Code 里直接说"写一份月报""把这篇压成一页""帮我去掉 AI 味"，skill 会自动匹配；也可显式 `/sharp-writing`。
+装好后直接说"写一份月报""把这篇压成一页""帮我去掉 AI 味"，skill 会自动匹配；Claude Code 里也可显式 `/sharp-writing`。
 
 可选：把词表检查挂成 hook，任何 .md 文稿一经 Write/Edit 就自动过黑名单（`~/.claude/settings.json`）：
 
