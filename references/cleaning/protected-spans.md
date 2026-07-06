@@ -4,7 +4,7 @@
 
 > 在追求“更像人”之前，先把不能漂的片段保护住。
 
-这份文档把 `SKILL.md` 里的 no-touch 原则展开成一个可执行的预检清单。  
+这份文档把 [cleaning.md](../cleaning.md) 第 5 节（No-touch and keep rules）的原则展开成一个可执行的预检清单。  
 `v1.7.0` 先采用 prompt 内 checklist，不要求额外输出 `facts ledger` 格式。
 
 使用顺序：

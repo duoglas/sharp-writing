@@ -14,7 +14,7 @@
 
 使用顺序：
 
-1. 先按 `SKILL.md` 判场景，确认主语域和禁改边界
+1. 先按 [cleaning.md](../cleaning.md) 第 1 节判场景（chat / status / docs / public-writing），确认主语域和禁改边界
 2. 先看 [Protected Spans](./protected-spans.md)，把不能漂的内容圈出来
 3. 再判 `Tier` 和档位
 4. 再用这份正向合同判断“改成什么样才算更像人”
