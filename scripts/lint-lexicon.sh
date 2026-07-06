@@ -5,13 +5,13 @@
 # 注意: macOS awk 在 UTF-8 locale 下对 CJK 字符串比较有 bug，词表解析必须用 LC_ALL=C
 set -uo pipefail
 
-LEXICON="$(cd "$(dirname "$0")/.." && pwd)/references/cleaning/personal-lexicon.md"
+LEXICON="$(cd "$(dirname "$0")/.." && pwd)/personal/lexicon.md"
 [ -f "$LEXICON" ] || { echo "找不到词表: $LEXICON" >&2; exit 2; }
 
 WORDS=$(awk '/## 黑名单/,/## 白名单/' "$LEXICON" \
   | LC_ALL=C awk -F'|' '/^\|/ {gsub(/ /,"",$2); if ($2!="" && $2!="词" && $2 !~ /^-+$/) print $2}')
 
-[ -n "$WORDS" ] || { echo "词表解析为空，检查 personal-lexicon.md 格式" >&2; exit 2; }
+[ -n "$WORDS" ] || { echo "词表解析为空，检查 personal/lexicon.md 格式" >&2; exit 2; }
 
 HIT=0
 for f in "$@"; do

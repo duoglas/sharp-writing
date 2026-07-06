@@ -63,36 +63,42 @@ git clone https://github.com/duoglas/sharp-writing.git ~/.claude/skills/sharp-wr
 
 ## 流程与结构
 
-五步主流程：判体裁读分册 → PLAN 动笔前三行（靶子 / 主要矛盾 / 数字锚点）→ EXECUTE 先详后简 → 清理（词表 lint + 结构扫描 + 三查）→ REVIEW 终检（不在场测试 / 转发测试）。
+SKILL.md 是自足的执行协议：读个人层 → PLAN 三行（靶子 / 主要矛盾 / 数字锚点）→ 四步归纳写详细版 → 详简三问压缩 → 清理（脚本反馈循环跑到全绿 + 概括句三查）→ 逐句五关终检。常规产出走 SKILL.md 一个文件即可，references/ 是深水区，按需一跳直达。
 
 ```
-SKILL.md                      主流程（五步）
+SKILL.md                      自足执行协议（五步全内联 + 深水区导航）
+personal/
+  lexicon.md                  个人词表（黑白名单，自进化落点一）
+  rules.md                    个人规则增补（自进化落点二，优先级最高）
 references/
+  condense.md                 构建分册完整版：归纳跳跃 / 四步归纳 / 遮盖检验 / 详简三问
   principles.md               六原则总纲 + 概念命名规范
-  condense.md                 构建分册：归纳跳跃 / 四步归纳 / 遮盖检验 / 详简三问
   titles.md                   标题学（文章 / PPT / 文档三套规则）
-  scene-report.md             汇报分册（dashboard、vs 基线、逐句五关）
+  scene-report.md             汇报分册（dashboard、vs 基线、敏感词清单）
   scene-review.md             人员评价分册
   scene-summary.md            总结 / 规划分册
   scene-slides.md             PPT 分册（讨论型 / 汇报型）
   cases.md                    范本案例库（张一鸣 / 黄峥 / 王慧文 / 周枫 / Bezos 等）
-  cleaning.md + cleaning/     清理协议全套（词表、结构反模式、严重度、误杀防护）
+  cleaning.md + cleaning/     清理协议完整版（Tier 细则、短语表、误杀防护）
 scripts/
-  lint-lexicon.sh             L0 词表硬闸（黑名单命中退出码 1）
+  check.sh                    机械检查合一入口（词表 + 结构 + 敏感词）
+  lint-lexicon.sh             L0 词表硬闸
   check-structure.sh          结构反模式扫描（二元骨架 / 总结收尾 / 无源断言 / 对仗密度）
   hook-lint.sh                PostToolUse hook 版词表检查
 ```
 
-两个脚本可独立使用，不依赖 Claude：
+脚本可独立使用，不依赖 Claude：
 
 ```bash
-bash scripts/lint-lexicon.sh 你的文稿.md
-bash scripts/check-structure.sh 你的文稿.md
+bash scripts/check.sh 你的文稿.md          # 一条命令跑完，修复后重跑至全绿
+bash scripts/check.sh 你的文稿.md report   # 汇报场景追加敏感词扫描
 ```
 
 ## 定制
 
-`references/cleaning/personal-lexicon.md` 是词表的单一有效来源：黑名单（你点名讨厌的词）和白名单（你所在团队的正常用语，防"去 AI 味"误杀）都在这一个文件里改。判断一个词该不该进黑名单的标准写在文件末尾：看你自己的历史语料用不用它，而不是看通用 AI 词表。
+所有你个人的东西集中在 `personal/` 目录，两个文件：`lexicon.md` 是词表（黑名单 = 你点名讨厌的词，白名单 = 你所在团队的正常用语，防"去 AI 味"误杀），`rules.md` 是你的个人规则增补，优先级高于全部通用规则。入表标准写在文件里：词条必须有你的点名或历史语料证据，不收"行业常用"印象词。
+
+skill 支持有边界的自进化：使用中你点名一个词，agent 当场写进 lexicon.md 并即刻生效；你给出规则性反馈，agent 提炼成条目追加 rules.md——每条必须带日期和你的原话，可追溯。进化只允许写 personal/ 两个文件，核心规则要改必须人工动手，所以它学得会你的偏好，也不会悄悄改掉方法论。
 
 ## 来源与致谢
 

@@ -1,80 +1,143 @@
 ---
 name: sharp-writing
-description: 中文职场书面表达一体化协议：构建（结构/判断/数字/概念命名）+ 清理（去 AI 味/词表/语域）+ 自检。适用于写汇报、评价、总结、PPT 文案、对外文章等正式书面产出，以及"去 AI 味""说人话""自然一点"的改写需求。
+description: 中文职场书面表达一体化协议：构建（结构/判断/数字/概念命名）+ 清理（去 AI 味/词表/语域）+ 自检，支持个人词表与个人规则自进化。适用于写汇报、评价、总结、PPT 文案、对外文章等正式书面产出，以及"去 AI 味""说人话""自然一点"的改写需求。
 metadata:
-  short-description: 简练有力的中文职场写作协议（构建 + 清理一体）
+  short-description: 简练有力的中文职场写作协议（构建 + 清理一体，可自进化）
 ---
 
 # Sharp Writing
 
-把书面产出从"写出来再改"变成"先想清楚再写，写完再洗一遍"。本 skill 一体化覆盖**构建**（结构、判断、数字、概念）与**清理**（去 AI 味、词表、语域），所有机制自包含，不依赖其他 skill。
+把书面产出从"写出来再改"变成"先想清楚再写，写完再洗一遍"。两个分支方向相反：**构建分支**（写新 / 缩写）正向生成好概括；**审读分支**（review 已有文字 / 去 AI 味）反向拦截坏概括。归纳是发动机，三查是刹车。
 
-两个分支，方向相反：**构建分支**（写新内容 / 缩写提炼）正向生成好概括，核心机制在 [condense](./references/condense.md)；**审读分支**（review 已有文字 / 去 AI 味）反向拦截坏概括，核心机制在 [cleaning](./references/cleaning.md)。归纳是发动机，三查是刹车，构建产物最终仍过审读。
+本文件自足：常规产出（汇报 / 总结 / 缩写）按本文件走完即可，不需要读其他文件。references/ 是深水区，只在"什么时候读什么"表格命中时才读。
+
+## 第 0 步：读个人层（必做）
+
+先读 `personal/` 下两个小文件，它们优先级最高：
+
+- [personal/lexicon.md](./personal/lexicon.md) — 黑白名单词表（黑名单命中必改，白名单禁止误杀）
+- [personal/rules.md](./personal/rules.md) — 使用者的个人规则增补，与通用规则冲突时以它为准
+
+**自进化协议**：用户点名一个词（"这个词别用"/"这个词是我们的正常用语"）→ 立即写入 lexicon.md（带日期），本次改稿即生效。用户给规则性反馈（某类写法不好 / 某种表达要保持）→ 提炼成一条追加 rules.md，必须带日期 + 用户原话，不许凭印象立规则。自进化只写 personal/ 两个文件；核心 references/ 只能人工改；一条个人规则经 2-3 篇产出验证后可提议升级进核心，用户确认才动。
 
 ## When to use
 
-- 写任何正式书面产出：向上汇报（周报/月报/半年总结）、人员评价、规划总结、PPT 文案、对外文章 → 构建分支，走五步全流程
-- 缩写 / 提炼已有长文（"压成一页""帮我概括""写个短版"）→ 构建分支，重点走第 3 步的 [condense](./references/condense.md) 详简三问
-- 用户说"按标准写""写得简练有力""帮我把这段写好" → 构建分支
-- 纯审读需求（"去 AI 味""说人话""别像模板"、review 已有稿）：跳过第 1-3 步，直接从第 4 步进入，按 [cleaning](./references/cleaning.md) 完整协议执行
+- 写正式书面产出（汇报 / 评价 / 总结 / PPT / 对外文章）→ 走完整五步
+- 缩写、提炼已有长文（"压成一页""写个短版"）→ 第 3 步走"缩写：详简三问"
+- 纯审读（"去 AI 味""说人话"、review 已有稿）→ 跳到第 4 步清理
 
-## 执行流程（固定五步，不跳步）
+## 体裁速查表
 
-### 1. 判体裁，读分册
-
-| 体裁 | 分册 | 典型产出 |
-|---|---|---|
-| 向上汇报 | [scene-report](./references/scene-report.md) | 周报、月报、季度/半年总结、述职 |
-| 人员评价 | [scene-review](./references/scene-review.md) | 候选人评价、晋升评语、同事评价 |
-| 总结/规划 | [scene-summary](./references/scene-summary.md) | 项目总结、年度规划、复盘 |
-| PPT 文案 | [scene-slides](./references/scene-slides.md) | 讨论稿、汇报稿的页标题与页内文案 |
-| 对外文章 | [principles](./references/principles.md) 全文 + [cases](./references/cases.md) | 公众号、博客、演讲稿 |
+| 体裁 | 场景档位 | 硬约束 | 深水区（仅此时读） |
+|---|---|---|---|
+| 周报 / 月报 / 述职 | status | 周报 ≤800 字，月报 ≤1000 字；首页 dashboard；好坏对称；敏感词扫描 | 要上交给上级的月报 / 述职：[scene-report.md](./references/scene-report.md)；随手同步的进展不用读 |
+| 人员评价 | docs | 结论先行 + 编号短句；措辞克制；推理过程不写进结论 | [scene-review.md](./references/scene-review.md) |
+| 总结 / 规划 | status | What-How-Next 三段；先详后简 | [scene-summary.md](./references/scene-summary.md) |
+| PPT 文案 | — | 一页一判断；标题连读成线 | [scene-slides.md](./references/scene-slides.md) + [titles.md](./references/titles.md) |
+| 对外文章 | public-writing | 标题即论点；概念先定义后使用 | [principles.md](./references/principles.md) + [cases.md](./references/cases.md) |
 
 跨体裁产出以主体裁为准，其余只借规则不换语域。
 
-### 2. PLAN：动笔前三行（缺一不动笔）
+## 主流程（五步）
 
-1. **靶子行**：给谁看 / 他已知什么 / 看完要他做什么决策（"射箭要看靶子"；Amazon PRFAQ 式倒推——先写读者读完后的动作，再倒推正文）
-2. **主要矛盾行**：本篇最重要的一件事是什么，一句话（先列全再挑主，不平均看待；"捉住了主要矛盾，一切问题就迎刃而解"）
-3. **数字锚点行**：支撑核心判断的 2-3 个数字及其基线（vs 目标 / vs 上期 / vs 对照；"没有数量也就没有质量"）
+任务开始时复制此清单，逐项勾销：
 
-### 3. EXECUTE：先详后简（概括生成协议见 [condense](./references/condense.md)）
+```
+Sharp Writing 进度：
+- [ ] 0. 已读 personal/ 两文件
+- [ ] 1. PLAN 三行（靶子 / 主要矛盾 / 数字锚点）
+- [ ] 2. 详细版写完（写新走四步归纳）
+- [ ] 3. 压缩完成（详简三问，换层级不删字）
+- [ ] 4. check.sh 全绿 + 概括句三查
+- [ ] 5. 逐句五关 + 终检两测
+```
 
-先写信息饱和的详细版（完整逻辑链，不省 so what 和背景），再压缩到目标篇幅。详细版落成稿同目录的 `<文件名>-detail.md`，作为信息池保留，正式交付只交简版。两个关键动作都在 condense 分册：
+### 1. PLAN：动笔前三行（缺一不动笔）
 
-- **写新**：四步归纳（铺开事实 → 按共同原因重新归组，不沿用 KR/部门现成框架 → 每组归纳跳跃出判断句 → 顶层收口中心判断）+ 第一性遮盖检验（遮掉旧框架，中心判断还成立吗）
-- **压缩**：详简三问（一句话判断是什么 / 留哪 2 个数字可验证 / 改变读者哪个决策），压缩 = 换层级重写，不是删字
+1. **靶子行**：给谁看 / 他已知什么 / 看完要他做什么决策——先写读者读完后的动作，再倒推正文
+2. **主要矛盾行**：本篇最重要的一件事，一句话。先列全再挑主，不平均用力
+3. **数字锚点行**：支撑核心判断的 2-3 个数字及其基线（vs 目标 / vs 上期 / vs 对照）
 
-概括的唯一合法产物是新判断句，不是分类标签。写作中随时对照 [principles](./references/principles.md) 六原则。
+### 2. 写新内容：四步归纳（自下而上金字塔）
 
-### 4. 清理（内置协议，见 [cleaning.md](./references/cleaning.md)）
+概括是归纳的产物，不是压缩的技巧。概括的唯一合法产物是**新判断句**，不是分类标签（"三个积极信号"是标签零信息，"结构转型已启动但进展偏慢"是判断）。
 
-对成稿执行清理协议：
+1. **铺开**：全部事实带数字列出来，先不分组，禁止写判断
+2. **归组**：按隐藏的共同原因重新归组。禁止沿用材料自带的分组（KR 编号 / 部门 / 时间线）——沿用现成分组 = 跳过了自己的思考
+3. **组内跳跃**：每组问"这堆事实共同说明了什么"，逼出一个判断句（不是组名）
+4. **顶层收口**：对各组判断再问"合起来意味着什么"，得到中心判断——它就是 PLAN 的主要矛盾行，也是全文第一句
 
-1. **L0 词表硬闸**：跑 `scripts/lint-lexicon.sh <文件>`（脚本路径相对本 skill 目录），按 [个人词表](./references/cleaning/personal-lexicon.md) 黑名单命中必改，白名单禁止误杀；正式文稿必须 PASS
-2. **结构反模式扫描**：跑 `scripts/check-structure.sh <文件>`（二元对比骨架 / 总结式收尾 / 无源断言 / 对仗密度）。命中处人工复核——引用原话、规则讲解、反例展示可豁免，正文命中必改
-3. **判场景与档位**：汇报/总结 = `status`，评价/操作文档 = `docs`，对外文章 = `public-writing`；然后先判 Tier（问题命中强度）、再定档位（改写力度）——两者是独立维度，规则见 cleaning.md
-4. **概括句三查**：抽象状态词可反推、对仗金句全篇 ≤1 处、定性词带基线
-5. 完整规则（禁改项、无源引用三模式、结构反模式、误杀防护）见 [cleaning.md](./references/cleaning.md) 及其子文件
+**遮盖检验**：把 KR 编号、部门名、上期框架全部遮掉，只留"读者要做什么决策"+ 裸事实，中心判断还成立才算推导出来的；没了着落就回第 2 步重新归组。
 
-### 5. REVIEW：分册自检表 + 两条终检
+**判断句形态——写正题，不写反题**：正面陈述新判断 + 冒号 + 数字证据，对比由数字并置承载，不由句式承载。"不是 X 而是 Y""不在 X 在 Y""不再是 X"是推理残渣兼 AI 骨架。
 
-每个分册末尾有自己的检查表，逐项过。之后加两条通用终检：
+- 反面："单点执行不再是瓶颈，跨角色环节是"
+- 正面："执行瓶颈已上移到跨角色环节：任务按时率 96.8%，需求 / 测试 / 验收全卡在 70% 上下"
+- 例外：反题是读者的活跃误解、不纠偏会导致错误决策时可保留显式否定，全篇 ≤1 处
 
-- **不在场测试**：假设你没机会口头补充，任何需要口头解释的地方就是没写完的地方
-- **转发测试**：读者拿这段给他的上级看，需要二次翻译吗？需要就重写
+### 3. 缩写 / 压缩：详简三问
 
-## Reference navigation
+先写信息饱和的详细版（不省 so what 和背景，落成稿同目录 `<文件名>-detail.md` 保留），再压缩。压缩 = **换层级重写**，不是删字——删字丢的是 so what 和基线，产物是电报腔。对每一段问三问：
 
-- 六原则总纲 + 概念命名规范：[principles.md](./references/principles.md)
-- 构建与缩写（四步归纳 / 遮盖检验 / 详简三问）：[condense.md](./references/condense.md)
-- 标题学（文章/PPT/文档三套规则）：[titles.md](./references/titles.md)
-- 范本案例库（可引用片段 + 判断句模式）：[cases.md](./references/cases.md)
-- 各体裁分册：见上表
-- 清理层协议：[cleaning.md](./references/cleaning.md)，子文件在 [cleaning/](./references/cleaning/)（词表、中英短语表、结构反模式、严重度、误杀防护、场景禁改、微操作手册、边界案例）
-- 词表 lint：`scripts/lint-lexicon.sh <文件>`（黑名单命中退出码 1）
-- 结构反模式扫描：`scripts/check-structure.sh <文件>`（二元骨架/总结收尾/无源断言/对仗密度，命中退出码 1，需人工复核豁免项）
+1. **判断问**：这堆事实共同说明的一句话判断是什么？（必须是新信息）
+2. **验证问**：保留哪 2 个数字，能让读者自己验证这个判断？
+3. **决策问**：这个判断改变了读者的哪个决策？（so what 不许丢）
+
+概括句标准形态 = **判断 + 2 个数字 + so what**。写不出判断问的段落说明详细版没想清楚，回去补思考再压。
+
+### 4. 清理（机械层 + 判断层）
+
+**机械层**——一条命令跑完全部脚本检查（在本 skill 目录下执行，待检文件用绝对路径最稳），反馈循环跑到全绿：
+
+```bash
+bash scripts/check.sh <文件.md>          # 词表 + 结构反模式
+bash scripts/check.sh <文件.md> report   # 汇报场景追加敏感词扫描
+```
+
+命中后修复重跑，直到 `CHECK: 全绿`。豁免项（人工确认后可保留）：引用原话、规则讲解、反例展示。
+
+**判断层**——脚本扫不出来的，按下面规则逐段过：
+
+先判场景与档位：汇报/总结 = `status`，评价/操作文档 = `docs`，对外文章 = `public-writing`；Tier 是问题命中强度，档位（minimal/standard/aggressive）是改写力度，两者独立，`docs` 不升 aggressive。
+
+立即生效的删改规则：
+
+- 删开场套话、谄媚、元评论（"值得注意的是""让我来解释"）；删空总结收尾（"综上""归根结底""本质上"）
+- 二元对比骨架（"不是 X 而是 Y""与其 X 不如 Y"）多数删前半句直接说 Y
+- 无源引用（"研究表明""业内人士认为"）：status/docs 指出缺来源不代写，对外文章直接删权威铺垫；禁止补虚构来源
+- 商业黑话和表演腔换回普通动作动词——但先查 personal/lexicon.md 白名单，白名单词禁止误杀
+- 引用原文、命令、接口名、字段名、日志、报错、系统主语默认保留；不为了"像人"把专业文本改假
+
+**概括句三查**（对段首总判断、进展总结句、压缩后全文逐句）：
+
+1. **反推查**：抽象状态词（"机制成型""初见成效"）必须能就地反推出支撑事实，反推不出的退回事实句
+2. **对仗查**：对仗 / 金句全篇 ≤1 处，留信息密度最高的，其余改平直说
+3. **基线查**：定性词（"偏慢""明显提升"）必须带数字或基线，带不上就删定性只留事实
+
+### 5. REVIEW：逐句五关 + 终检两测
+
+每句话过五关，任一关不过标记重写，循环到全文零标记：
+
+1. **话讲完了吗**——没说一半留人猜
+2. **so what**——这个事实意味着什么、对目标什么影响
+3. **说人话了吗**——没用抽象概念词替代具体事实
+4. **数据有 vs 吗**——vs 目标 / vs 历史 / vs 对照，孤立数字不算数
+5. **然后呢**——判断闭环：好坏 + 原因 + 下一步
+
+终检两测：**不在场测试**（任何需要口头补充的地方就是没写完的地方）、**转发测试**（读者的上级读它需要二次翻译吗）。
+
+## 深水区导航（全部一跳直达）
+
+构建：[condense.md](./references/condense.md)（四步归纳完整版）· [principles.md](./references/principles.md)（六原则 + 概念命名）· [titles.md](./references/titles.md)（标题学三套规则）· [cases.md](./references/cases.md)（范本判断句模式）
+
+体裁分册：[scene-report.md](./references/scene-report.md) · [scene-review.md](./references/scene-review.md) · [scene-summary.md](./references/scene-summary.md) · [scene-slides.md](./references/scene-slides.md)
+
+清理协议完整版：[cleaning.md](./references/cleaning.md)（Tier 细则 / 无源引用三模式 / annotation mode / 输出合同）
+
+清理子表（按病灶直达）：[中文短语表](./references/cleaning/phrases-zh.md) · [英文短语表](./references/cleaning/phrases-en.md) · [结构反模式](./references/cleaning/structures.md) · [严重度分级](./references/cleaning/severity.md) · [误杀防护](./references/cleaning/protected-spans.md) · [场景禁改](./references/cleaning/scene-guardrails.md) · [正向风格](./references/cleaning/positive-style.md) · [微操作手册](./references/cleaning/operation-manual.md) · [边界案例](./references/cleaning/boundary-cases.md) · [改写示例](./references/cleaning/examples.md)
+
+脚本：`scripts/check.sh`（合一入口）· `scripts/lint-lexicon.sh` · `scripts/check-structure.sh` · `scripts/hook-lint.sh`（PostToolUse hook 版）
 
 ## 源与演化
 
-规则源自作者的私有知识库（表达实践 thesis + 12 条已审定范本的提炼），新反馈先进源头、验证后同步到本 skill——源是 master，skill 是 release。
+规则源自作者的私有知识库（表达实践 thesis + 12 条已审定范本的提炼），新反馈先进 personal/，验证后同步核心——源是 master，skill 是 release。清理层源自开源 skill [说人话（shuorenhua）](https://github.com/MrGeDiao/shuorenhua)（MIT © MrGeDiao）。
